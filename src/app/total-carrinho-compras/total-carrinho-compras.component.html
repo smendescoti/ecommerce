@@ -1,0 +1,12 @@
+<form class="d-flex">
+    <div class="text-white">
+        <div class="mt-1">
+            <strong>Total: {{total | currency: 'R$ '}}</strong>
+        </div>
+    </div>
+    &nbsp;
+    &nbsp;
+    <a href="/login" *ngIf="total > 0" class="btn btn-success btn-sm">
+        Finalizar Pedido
+    </a>
+</form>
