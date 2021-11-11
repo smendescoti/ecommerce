@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   formLogin = new FormGroup({
     email: new FormControl('', []),
@@ -19,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    window.location.href = "/finalizar-pedido";
+    this.router.navigate(['/finalizar-pedido']);
   }
 
 }

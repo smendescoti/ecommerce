@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../services/produto.service';
 import { Produto } from '../models/produto.model';
 import { CarrinhoComprasService } from '../services/carrinho-compras.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produtos',
@@ -22,7 +23,8 @@ export class ProdutosComponent implements OnInit {
 
   constructor(
     private carrinhoComprasService: CarrinhoComprasService, //injeção de dependência
-    private produtoService: ProdutoService //injeção de dependência
+    private produtoService: ProdutoService, //injeção de dependência
+    private router: Router //navegação de rotas
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +37,7 @@ export class ProdutosComponent implements OnInit {
 
   adicionarProduto(item: Produto): void {
     this.carrinhoComprasService.adicionarItem(item);
-    window.location.href = '/carrinho-compras';
+    this.router.navigate(['/carrinho-compras']);
   }
 
   //função para avançar e voltar na paginação

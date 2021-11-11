@@ -6,7 +6,7 @@
     </div>
     &nbsp;
     &nbsp;
-    <a href="/login" *ngIf="total > 0" class="btn btn-success btn-sm">
+    <a [routerLink]="['/login']" *ngIf="total > 0" class="btn btn-success btn-sm">
         Finalizar Pedido
     </a>
 </form>
